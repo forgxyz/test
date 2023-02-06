@@ -7,8 +7,6 @@ env:
   HELLO_WORLD_SECRET: "${{ secrets.HELLO_WORLD }}"
   HELLO_WORLD_VAR: "${{ vars.HELLO_WORLD }}"
 
-
-
 jobs:
   run_var_test_jobs:
     runs-on: ubuntu-latest
@@ -24,3 +22,4 @@ jobs:
           echo "hello test"
           echo "$HELLO_WORLD_SECRET"
           echo "${{ secrets.HELLO_WORLD }}"
+          echo "${{ vars.HELLO_WORLD }}"
