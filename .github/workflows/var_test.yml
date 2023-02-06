@@ -20,4 +20,4 @@ jobs:
 
       - name: test parameter expansion
         run: |
-          echo "${vars.HELLO_WORLD:-$HELLO_WORLD_SECRET}"
+          echo "${HELLO_WORLD_VAR:-$HELLO_WORLD_SECRET}"
