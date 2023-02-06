@@ -4,7 +4,8 @@ on:
   workflow_dispatch:
 
 env:
-  HELLO_WORLD: "${{ vars.HELLO_WORLD:-secrets.HELLO_WORLD }}"
+  HELLO_WORLD_SECRET: "${{ secrets.HELLO_WORLD }}"
+  HELLO_WORLD_VAR: "${{ vars.HELLO_WORLD }}"
 
 
 
@@ -19,4 +20,4 @@ jobs:
 
       - name: test parameter expansion
         run: |
-          echo $HELLO_WORLD
+          echo "${vars.HELLO_WORLD:-$HELLO_WORLD_SECRET}"
