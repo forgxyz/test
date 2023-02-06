@@ -18,5 +18,5 @@ jobs:
 
       - name: test parameter expansion
         run: |
-          VAR1="${HELLO_WORLD_VAR:=HELLO_WORLD_SECRET}"
+          VAR1="${$HELLO_WORLD_VAR:=$HELLO_WORLD_SECRET}"
           echo $VAR1
