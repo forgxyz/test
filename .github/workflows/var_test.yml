@@ -1,0 +1,21 @@
+name: var_test
+
+on:
+  workflow_dispatch:
+
+env:
+  HELLO_WORLD_SECRET: "${{ secrets.HELLO_WORLD }}"
+  HELLO_WORLD_VAR: "${{ vars.HELLO_WORLD }}"
+
+jobs:
+  run_var_test_jobs:
+    runs-on: ubuntu-latest
+    environment: 
+      name: var_test
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: test parameter expansion
+        run: |
+          echo ${HELLO_WORLD_VAR: =HELLO_WORLD_SECRET}
