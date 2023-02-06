@@ -19,6 +19,7 @@ jobs:
       - name: test parameter expansion
         run: |
           echo "${HELLO_WORLD_VAR:-$HELLO_WORLD_SECRET}"
+          echo "${HELLO_WORLD_SECRET:-$HELLO_WORLD_VAR}"
           echo "hello test"
           echo "$HELLO_WORLD_SECRET"
           echo "${{ secrets.HELLO_WORLD }}"
