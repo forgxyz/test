@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 env:
-  HELLO_WORLD: "${ ${{ secrets.HELLO_WORLD }}:-${{ vars.HELLO_WORLD }} }"
+  HELLO_WORLD: "${{ vars.HELLO_WORLD }}:-${{ secrets.HELLO_WORLD }}"
 
 
 
