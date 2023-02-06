@@ -3,6 +3,11 @@ name: var_test
 on:
   workflow_dispatch:
 
+env:
+  HELLO_WORLD: "${ ${{ secrets.HELLO_WORLD }}:-${{ vars.HELLO_WORLD }} }"
+
+
+
 jobs:
   run_var_test_jobs:
     runs-on: ubuntu-latest
@@ -14,4 +19,4 @@ jobs:
 
       - name: test parameter expansion
         run: |
-          echo "${${{ vars.HELLO_WORLD }}:-${{ secrets.HELLO_WORLD}} }"
+          echo $HELLO_WORLD
